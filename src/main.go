@@ -2,13 +2,13 @@ package main
 
 import (
 	"flag"
+	"log"
 	"net/http"
 	"os"
 
 	"github.com/kyokomi/slackbot"
 	"github.com/kyokomi/slackbot/plugins"
 	"github.com/kyokomi/slackbot/plugins/echo"
-	"log"
 )
 
 func main() {
@@ -24,7 +24,7 @@ func main() {
 	bot.AddPlugin("echo", echo.NewPlugin())
 
 	bot.Run(func(event plugins.BotEvent) {
-		log.Println("Connected:%v", event.ChannelName())
+		log.Println("Connected:", event.ChannelName())
 		if event.ChannelName() == "#general" {
 			event.Reply("OK")
 		}

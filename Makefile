@@ -16,6 +16,7 @@ clean:
 
 fmt:
 	gofmt -w ./src/main.go
+	goimports -w ./src
 
 run: install
 	go run ./src/main.go -token $(TOKEN)
